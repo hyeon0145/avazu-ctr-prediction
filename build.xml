@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="package" name="CTRPrediction">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="CTRPrediction.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../../hadoop/hadoop-ant-1.2.1.jar"/>
+        <pathelement location="../../hadoop/hadoop-client-1.2.1.jar"/>
+        <pathelement location="../../hadoop/hadoop-core-1.2.1.jar"/>
+        <pathelement location="../../hadoop/hadoop-examples-1.2.1.jar"/>
+        <pathelement location="../../hadoop/hadoop-minicluster-1.2.1.jar"/>
+        <pathelement location="../../hadoop/hadoop-test-1.2.1.jar"/>
+        <pathelement location="../../hadoop/hadoop-tools-1.2.1.jar"/>
+        <pathelement location="../../hadoop/lib/asm-3.2.jar"/>
+        <pathelement location="../../hadoop/lib/aspectjrt-1.6.11.jar"/>
+        <pathelement location="../../hadoop/lib/aspectjtools-1.6.11.jar"/>
+        <pathelement location="../../hadoop/lib/commons-beanutils-1.7.0.jar"/>
+        <pathelement location="../../hadoop/lib/commons-beanutils-core-1.8.0.jar"/>
+        <pathelement location="../../hadoop/lib/commons-cli-1.2.jar"/>
+        <pathelement location="../../hadoop/lib/commons-codec-1.4.jar"/>
+        <pathelement location="../../hadoop/lib/commons-collections-3.2.1.jar"/>
+        <pathelement location="../../hadoop/lib/commons-configuration-1.6.jar"/>
+        <pathelement location="../../hadoop/lib/commons-daemon-1.0.1.jar"/>
+        <pathelement location="../../hadoop/lib/commons-digester-1.8.jar"/>
+        <pathelement location="../../hadoop/lib/commons-el-1.0.jar"/>
+        <pathelement location="../../hadoop/lib/commons-httpclient-3.0.1.jar"/>
+        <pathelement location="../../hadoop/lib/commons-io-2.1.jar"/>
+        <pathelement location="../../hadoop/lib/commons-lang-2.4.jar"/>
+        <pathelement location="../../hadoop/lib/commons-logging-1.1.1.jar"/>
+        <pathelement location="../../hadoop/lib/commons-logging-api-1.0.4.jar"/>
+        <pathelement location="../../hadoop/lib/commons-math-2.1.jar"/>
+        <pathelement location="../../hadoop/lib/commons-net-3.1.jar"/>
+        <pathelement location="../../hadoop/lib/core-3.1.1.jar"/>
+        <pathelement location="../../hadoop/lib/hadoop-capacity-scheduler-1.2.1.jar"/>
+        <pathelement location="../../hadoop/lib/hadoop-fairscheduler-1.2.1.jar"/>
+        <pathelement location="../../hadoop/lib/hadoop-thriftfs-1.2.1.jar"/>
+        <pathelement location="../../hadoop/lib/hsqldb-1.8.0.10.jar"/>
+        <pathelement location="../../hadoop/lib/jackson-core-asl-1.8.8.jar"/>
+        <pathelement location="../../hadoop/lib/jackson-mapper-asl-1.8.8.jar"/>
+        <pathelement location="../../hadoop/lib/jasper-compiler-5.5.12.jar"/>
+        <pathelement location="../../hadoop/lib/jasper-runtime-5.5.12.jar"/>
+        <pathelement location="../../hadoop/lib/jdeb-0.8.jar"/>
+        <pathelement location="../../hadoop/lib/jersey-core-1.8.jar"/>
+        <pathelement location="../../hadoop/lib/jersey-json-1.8.jar"/>
+        <pathelement location="../../hadoop/lib/jersey-server-1.8.jar"/>
+        <pathelement location="../../hadoop/lib/jets3t-0.6.1.jar"/>
+        <pathelement location="../../hadoop/lib/jetty-6.1.26.jar"/>
+        <pathelement location="../../hadoop/lib/jetty-util-6.1.26.jar"/>
+        <pathelement location="../../hadoop/lib/jsch-0.1.42.jar"/>
+        <pathelement location="../../hadoop/lib/junit-4.5.jar"/>
+        <pathelement location="../../hadoop/lib/kfs-0.2.2.jar"/>
+        <pathelement location="../../hadoop/lib/log4j-1.2.15.jar"/>
+        <pathelement location="../../hadoop/lib/mockito-all-1.8.5.jar"/>
+        <pathelement location="../../hadoop/lib/oro-2.0.8.jar"/>
+        <pathelement location="../../hadoop/lib/servlet-api-2.5-20081211.jar"/>
+        <pathelement location="../../hadoop/lib/slf4j-api-1.4.3.jar"/>
+        <pathelement location="../../hadoop/lib/slf4j-log4j12-1.4.3.jar"/>
+        <pathelement location="../../hadoop/lib/xmlenc-0.52.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="CTRPrediction.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+              	
+    <target name="my-works" depends="build">
+    	<jar jarfile="ctr-prediction.jar" basedir="bin">
+    		<manifest>
+    			<attribute name="Main-Class" value="common/Driver"/> 
+    		</manifest>
+    	</jar>
+    </target>
+              	
+    <target name="package" depends="my-works">
+    	<copy file="ctr-prediction.jar" todir="${basedir}"/> 	
+    </target>
+</project>
